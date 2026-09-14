@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight, BriefcaseBusiness, CheckCircle2, Code2, Database, Download, Github, GraduationCap, Linkedin, Mail, MapPin, Menu, Phone, Server, Sparkles, Trophy, X, Zap } from "lucide-react";
+import {
+  BookOpen,
+  Award,
+  Users, ArrowDown, ArrowUpRight, BriefcaseBusiness, CheckCircle2, Send, Code2, Database, Download, Github, GraduationCap, Linkedin, Mail, MapPin, Menu, Phone, Server, Sparkles, Trophy, X, Zap
+} from "lucide-react";
 
 const skills = {
   Languages: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SQL"],
@@ -61,12 +65,14 @@ const education = [
 ];
 
 function Section({ id, eyebrow, title, children }) {
-  return <section id={id} className="relative mx-auto max-w-7xl scroll-mt-24 px-5 py-24 md:px-8">
+  return <section id={id} className="relative mx-auto max-w-7xl scroll-mt-24 px-5 md:py-24 py-16 md:px-8">
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .7 }}>
       <p className="mb-3 text-xs font-semibold uppercase tracking-[.3em] text-cyan-300">{eyebrow}</p>
       <h2 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">{title}</h2>
     </motion.div>
     {children}
+
+    <div className="pointer-events-none absolute bottom-0 left-1/2 h-px w-[85%] -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent" />
   </section>;
 }
 
@@ -127,7 +133,7 @@ export default function Page() {
             </span>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }} className="mb-7 md:ms-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs text-cyan-200"><span className="h-2 w-2 animate-pulse rounded-full bg-cyan-300" /> Available for new opportunities</motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .8 }} className="max-w-5xl text-6xl font-black leading-[.94] tracking-[-.055em] sm:text-7xl md:text-8xl">Shashi <span className="text-gradient">Suman</span></motion.h1>
+          <motion.h1 initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .8 }} className="max-w-5xl text-5xl font-black leading-[.94] tracking-[-.055em] sm:text-7xl md:text-8xl">Shashi <span className="text-gradient">Suman</span></motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .25 }} className="mt-8 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">3.5+ years building scalable, production-grade web applications across SaaS, LMS and CRM products — from polished interfaces to reliable APIs.</motion.p>
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .35 }} className="mt-9 flex flex-wrap gap-3">
             <a href="#projects" className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02]">View projects <ArrowUpRight size={17} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" /></a>
@@ -143,13 +149,13 @@ export default function Page() {
           </div>
         </motion.div>
       </div>
-      <a href="#about" className="absolute bottom-7 left-1/2 -translate-x-1/2 text-slate-500 transition hover:text-white"><ArrowDown className="animate-bounce" /></a>
+      <a href="#about" className="absolute md:bottom-7 bottom-0 left-1/2 -translate-x-1/2 text-slate-500 transition hover:text-white"><ArrowDown className="animate-bounce" /></a>
     </section>
 
     <Section id="about" eyebrow="01 / Profile" title="Engineering with product thinking.">
       <div className="mt-12 grid gap-5 md:grid-cols-3">
-        <div className="glass rounded-3xl p-7 md:col-span-2"><p className="text-lg leading-8 text-slate-300">Full Stack Software Developer with 3.5+ years of experience designing and building scalable, production-grade web applications using React.js, Angular, Next.js, Node.js, TypeScript, and MySQL. Proven track record delivering SaaS platforms, Learning Management Systems (LMS), and CRM solutions, including REST API design, third-party integrations, state management (Redux, Redux-toolkit, RxJS), and performance optimization.</p><p className="mt-5 leading-7 text-slate-400">Strong foundation in Data Structures and Algorithms, with hands-on experience in Agile/Scrum development, cross-functional collaboration, and end-to-end feature ownership.</p></div>
-        <div className="glass rounded-3xl p-7"><div className="mb-8 flex items-center gap-3"><Zap className="text-cyan-300" /><span className="font-semibold">Core strengths</span></div><ul className="space-y-5 text-sm text-slate-300">{["End-to-end feature ownership", "Scalable SaaS applications", "REST API & integrations", "Performance optimization", "Agile/Scrum collaboration"].map(x => <li key={x} className="flex gap-3"><CheckCircle2 size={17} className="mt-0.5 shrink-0 text-cyan-300" />{x}</li>)}</ul></div>
+        <div className="glass rounded-xl md:rounded-3xl p-7 md:col-span-2"><p className="text-lg leading-8 text-slate-300">Full Stack Software Developer with 3.5+ years of experience designing and building scalable, production-grade web applications using React.js, Angular, Next.js, Node.js, TypeScript, and MySQL. Proven track record delivering SaaS platforms, Learning Management Systems (LMS), and CRM solutions, including REST API design, third-party integrations, state management (Redux, Redux-toolkit, RxJS), and performance optimization.</p><p className="mt-5 leading-7 text-slate-400">Strong foundation in Data Structures and Algorithms, with hands-on experience in Agile/Scrum development, cross-functional collaboration, and end-to-end feature ownership.</p></div>
+        <div className="glass rounded-xl md:rounded-3xl p-7"><div className="mb-8 flex items-center gap-3"><Zap className="text-cyan-300" /><span className="font-semibold">Core strengths</span></div><ul className="space-y-5 text-sm text-slate-300">{["End-to-end feature ownership", "Scalable SaaS applications", "REST API & integrations", "Performance optimization", "Agile/Scrum collaboration"].map(x => <li key={x} className="flex gap-3"><CheckCircle2 size={17} className="mt-0.5 shrink-0 text-cyan-300" />{x}</li>)}</ul></div>
       </div>
     </Section>
 
@@ -158,7 +164,7 @@ export default function Page() {
         {experience.map((job, i) => <motion.article key={job.company} initial={{ opacity: 0, x: -25 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .7, delay: i * .1 }} className="relative mb-14 last:mb-0">
           <span className="absolute -left-[34px] top-2 h-3 w-3 rounded-full border-2 border-cyan-300 bg-[#05070d] md:-left-[58px]" />
           <div className="mb-5 flex flex-col justify-between gap-2 md:flex-row md:items-start"><div><div className="flex flex-wrap items-center gap-3"><h3 className="text-2xl font-bold">{job.company}</h3>{job.current && <span className="rounded-full border border-cyan-300/20 bg-cyan-300/5 px-2.5 py-1 text-[10px] uppercase tracking-wider text-cyan-200">Current</span>}</div><p className="mt-1 text-cyan-300">{job.role}</p></div><div className="text-sm text-slate-500 md:text-right"><p>{job.dates}</p><p className="mt-1">{job.location}</p></div></div>
-          <div className="glass rounded-3xl p-6 md:p-8"><ul className="grid gap-4 md:grid-cols-2">{job.bullets.map(b => <li key={b} className="flex gap-3 text-sm leading-6 text-slate-300"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-300" />{b}</li>)}</ul></div>
+          <div className="glass rounded-xl md:rounded-3xl p-6 md:p-8"><ul className="grid gap-4 md:grid-cols-2">{job.bullets.map(b => <li key={b} className="flex gap-3 text-sm leading-6 text-slate-300"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-300" />{b}</li>)}</ul></div>
         </motion.article>)}
       </div>
     </Section>
@@ -178,22 +184,380 @@ export default function Page() {
 
     <Section id="skills" eyebrow="04 / Toolkit" title="A practical full-stack toolkit.">
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {Object.entries(skills).map(([group, items], i) => <motion.div key={group} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .06 }} className="glass rounded-3xl p-6"><div className="mb-5 flex items-center justify-between"><h3 className="font-semibold">{group}</h3>{group === "Backend" ? <Server size={17} className="text-violet-300" /> : group === "Databases" ? <Database size={17} className="text-violet-300" /> : <Code2 size={17} className="text-cyan-300" />}</div><div className="flex flex-wrap gap-2">{items.map(s => <span key={s} className="rounded-lg bg-white/[.045] px-3 py-2 text-xs text-slate-300 ring-1 ring-white/[.06]">{s}</span>)}</div></motion.div>)}
+        {Object.entries(skills).map(([group, items], i) => <motion.div key={group} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .06 }} className="glass rounded-xl md:rounded-3xl p-6"><div className="mb-5 flex items-center justify-between"><h3 className="font-semibold">{group}</h3>{group === "Backend" ? <Server size={17} className="text-violet-300" /> : group === "Databases" ? <Database size={17} className="text-violet-300" /> : <Code2 size={17} className="text-cyan-300" />}</div><div className="flex flex-wrap gap-2">{items.map(s => <span key={s} className="rounded-lg bg-white/[.045] px-3 py-2 text-xs text-slate-300 ring-1 ring-white/[.06]">{s}</span>)}</div></motion.div>)}
       </div>
     </Section>
 
-    <Section id="education" eyebrow="05 / Education & growth" title="Learning never stopped after graduation.">
-      <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_.85fr]">
-        <div className="space-y-4">{education.map((e, i) => <motion.div key={e.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }} className="glass rounded-3xl p-6"><div className="flex gap-4"><div className="rounded-xl bg-violet-300/10 p-3 text-violet-300"><GraduationCap size={20} /></div><div><h3 className="font-bold">{e.title}</h3><p className="mt-1 text-sm text-cyan-300">{e.place}</p><p className="mt-2 text-xs text-slate-500">{e.date} · {e.location}</p></div></div></motion.div>)}</div>
-        <div className="glass rounded-3xl p-7"><p className="text-xs uppercase tracking-[.25em] text-cyan-300">Newton School Coding Bootcamp</p><h3 className="mt-3 text-2xl font-bold">June 2022 – January 2023</h3><p className="mt-1 text-sm text-slate-500">Remote – Bangalore, India</p><ul className="mt-7 space-y-4 text-sm leading-6 text-slate-300"><li>• Completed intensive Full Stack Web Development training covering Data Structures & Algorithms (DSA) using Java, HTML, CSS, JavaScript, and React.js.</li><li>• Participated in weekly and monthly coding contests organized by the platform.</li><li>• Built multiple projects as part of co-curricular technical activities.</li></ul><div className="mt-8 border-t border-white/10 pt-7"><p className="text-xs uppercase tracking-[.25em] text-slate-500">Certifications</p><div className="mt-4 space-y-3 text-sm text-slate-300"><p>• Certified Web Developer – Eshuzo Global Technologies</p><p>• Algorithmic Toolbox – Coursera</p></div></div><div className="mt-8 border-t border-white/10 pt-7"><p className="text-xs uppercase tracking-[.25em] text-slate-500">Co-curricular activities</p><div className="mt-4 space-y-3 text-sm leading-6 text-slate-300"><p>• Actively participated in various coding competitions hosted by Newton School.</p><p>• Solved 150+ Data Structures & Algorithms (DSA) problems across multiple competitive programming platforms.</p><p>• Served as Team Leader at Viral Fission, a youth community platform.</p></div></div></div>
+    <Section
+      id="education"
+      eyebrow="05 / Education & growth"
+      title="Learning never stopped after graduation."
+    >
+      <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* Education Timeline */}
+        <div className="relative space-y-5">
+          {/* Timeline line */}
+          <div className="absolute left-[27px] top-8 hidden h-[calc(100%-64px)] w-px bg-gradient-to-b from-cyan-300/50 via-violet-300/30 to-transparent sm:block" />
+
+          {education.map((e, i) => (
+            <motion.div
+              key={e.title}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              whileHover={{ y: -4 }}
+              className="group relative rounded-xl md:rounded-3xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/30 hover:bg-white/[0.06] hover:shadow-[0_15px_45px_rgba(34,211,238,0.08)] sm:p-6"
+            >
+              <div className="flex gap-4">
+                {/* Icon */}
+                <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-300 transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-300/15">
+                  <GraduationCap size={23} strokeWidth={1.8} />
+                </div>
+
+                {/* Content */}
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-lg font-bold tracking-tight text-white">
+                        {e.title}
+                      </h3>
+
+                      <p className="mt-1 text-sm font-medium text-cyan-300">
+                        {e.place}
+                      </p>
+                    </div>
+
+                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-slate-400">
+                      {e.date}
+                    </span>
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={13} />
+                    <span>{e.location}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Featured Learning Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="relative overflow-hidden md:rounded-[2rem] rounded-[1rem] border border-violet-300/20 bg-gradient-to-br from-violet-300/[0.12] via-white/[0.045] to-cyan-300/[0.08] p-6 shadow-[0_20px_80px_rgba(139,92,246,0.08)] sm:p-8"
+        >
+          {/* Decorative glow */}
+          <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-400/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-300/10 blur-3xl" />
+
+          <div className="relative">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-300/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-200">
+                  <BookOpen size={13} />
+                  Featured learning
+                </div>
+
+                <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  Newton School
+                  <span className="block text-violet-200">
+                    Coding Bootcamp
+                  </span>
+                </h3>
+
+                <p className="mt-3 text-sm text-slate-400">
+                  June 2022 – January 2023 · Remote, Bangalore, India
+                </p>
+              </div>
+
+              <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-violet-300/20 bg-violet-300/10 text-violet-200 sm:flex">
+                <Code2 size={22} />
+              </div>
+            </div>
+
+            {/* Training summary */}
+            <div className="mt-8 rounded-2xl border border-white/10 bg-black/10 p-5">
+              <p className="text-sm leading-7 text-slate-300">
+                Completed intensive Full Stack Web Development training covering
+                Data Structures & Algorithms using Java, HTML, CSS, JavaScript,
+                and React.js.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  "Java",
+                  "DSA",
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "React.js",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-cyan-300/15 bg-cyan-300/[0.07] px-3 py-1.5 text-xs text-cyan-200"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="mt-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-300/10 text-emerald-300">
+                  <Award size={17} />
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    Certifications
+                  </p>
+                  <h4 className="mt-1 font-semibold text-white">
+                    Verified learning milestones
+                  </h4>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {[
+                  "Certified Web Developer – Eshuzo Global Technologies",
+                  "Algorithmic Toolbox – Coursera",
+                ].map((certificate) => (
+                  <div
+                    key={certificate}
+                    className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-slate-300"
+                  >
+                    <CheckCircle2
+                      size={17}
+                      className="mt-1 shrink-0 text-emerald-300"
+                    />
+                    <span>{certificate}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Co-curricular activities */}
+            <div className="mt-8 border-t border-white/10 pt-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-300/10 text-cyan-300">
+                  <Users size={17} />
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    Co-curricular activities
+                  </p>
+                  <h4 className="mt-1 font-semibold text-white">
+                    Beyond the classroom
+                  </h4>
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm leading-6 text-slate-300">
+                <div className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                  <p>
+                    Actively participated in coding competitions hosted by Newton
+                    School.
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                  <p>
+                    Solved 150+ Data Structures & Algorithms problems across
+                    multiple competitive programming platforms.
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                  <p>
+                    Served as Team Leader at Viral Fission, a youth community
+                    platform.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </Section>
 
-    <Section id="contact" eyebrow="06 / Contact" title="Let’s build something useful.">
-      <div className="mt-12 overflow-hidden rounded-[2rem] border border-cyan-300/15 bg-gradient-to-br from-cyan-300/[.08] via-white/[.02] to-violet-300/[.08] p-7 md:p-12">
-        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end"><div><p className="max-w-2xl text-2xl font-semibold leading-9 md:text-4xl md:leading-tight">Open to opportunities where I can build high-quality frontend and full-stack products.</p><div className="mt-8 flex flex-col gap-3 text-sm text-slate-300 sm:flex-row sm:flex-wrap sm:gap-6"><a href="mailto:raj34828@gmail.com" className="flex items-center gap-2 hover:text-cyan-300"><Mail size={16} /> raj34828@gmail.com</a><a href="tel:8409680456" className="flex items-center gap-2 hover:text-cyan-300"><Phone size={16} /> 8409680456</a><span className="flex items-center gap-2"><MapPin size={16} /> Bangalore, Karnataka</span></div></div><a href="mailto:raj34828@gmail.com" className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:scale-105">Start a conversation <ArrowUpRight size={17} /></a></div>
+    <Section
+      id="contact"
+      eyebrow="06 / Contact"
+      title="Let’s build something useful."
+    >
+      {/* Main Contact Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        className="relative mt-12 overflow-hidden md:rounded-[2rem] rounded-[1rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/[0.12] via-white/[0.035] to-violet-300/[0.12] p-6 shadow-[0_25px_90px_rgba(34,211,238,0.08)] sm:p-8 md:p-12"
+      >
+        {/* Decorative glow */}
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-violet-400/10 blur-3xl" />
+
+        {/* Decorative grid */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:32px_32px]" />
+
+        <div className="relative grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-center">
+          {/* Left Content */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-200">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300" />
+              Available for opportunities
+            </div>
+
+            <h3 className="mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+              Open to opportunities where I can build
+              <span className="block bg-gradient-to-r from-cyan-200 to-violet-200 bg-clip-text text-transparent">
+                high-quality digital products.
+              </span>
+            </h3>
+
+            <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+              Whether you have a project idea, a full-time opportunity, or simply
+              want to connect, feel free to reach out. I’m always open to meaningful
+              conversations and interesting challenges.
+            </p>
+
+            {/* Contact Details */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <a
+                href="mailto:raj34828@gmail.com"
+                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-black/10 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-cyan-300/[0.07]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-300/10 text-cyan-300 transition group-hover:scale-110">
+                  <Mail size={17} />
+                </span>
+
+                <span className="min-w-0">
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                    Email
+                  </span>
+                  <span className="mt-1 block truncate text-sm font-medium text-slate-200 group-hover:text-cyan-200">
+                    raj34828@gmail.com
+                  </span>
+                </span>
+              </a>
+
+              <a
+                href="tel:8409680456"
+                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-black/10 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/30 hover:bg-violet-300/[0.07]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-300/10 text-violet-200 transition group-hover:scale-110">
+                  <Phone size={17} />
+                </span>
+
+                <span>
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                    Phone
+                  </span>
+                  <span className="mt-1 block text-sm font-medium text-slate-200 group-hover:text-violet-200">
+                    8409680456
+                  </span>
+                </span>
+              </a>
+
+              <div className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-black/10 p-4 transition-all duration-300 hover:border-emerald-300/30 hover:bg-emerald-300/[0.07] sm:col-span-2">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-300/10 text-emerald-300 transition group-hover:scale-110">
+                  <MapPin size={17} />
+                </span>
+
+                <span>
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                    Location
+                  </span>
+                  <span className="mt-1 block text-sm font-medium text-slate-200">
+                    Bangalore, Karnataka
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right CTA Panel */}
+          <div className="relative rounded-xl md:rounded-3xl border border-white/10 bg-black/15 p-6 backdrop-blur-xl sm:p-8">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-300">
+              <Send size={23} />
+            </div>
+
+            <h4 className="mt-6 text-2xl font-bold text-white">
+              Have an idea?
+            </h4>
+
+            <p className="mt-3 text-sm leading-6 text-slate-400">
+              Let’s discuss how we can turn your idea into a reliable, beautiful,
+              and useful product.
+            </p>
+
+            <a
+              href="mailto:raj34828@gmail.com"
+              className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-slate-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)] transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-100 hover:shadow-[0_15px_35px_rgba(34,211,238,0.2)]"
+            >
+              Start a conversation
+              <ArrowUpRight
+                size={17}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+
+            <p className="mt-4 text-center text-xs text-slate-600">
+              Usually responds within 24–48 hours
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Footer */}
+      <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-7 text-xs text-slate-600 md:flex-row md:items-center md:justify-between">
+        <p className="text-center md:text-left">
+          © {new Date().getFullYear()} Shashi Suman. Built with Next.js, Tailwind
+          CSS & Motion.
+        </p>
+
+        <div className="flex items-center justify-center gap-3">
+          <a
+            href="mailto:raj34828@gmail.com"
+            aria-label="Send email"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-cyan-300/10 hover:text-cyan-300"
+          >
+            <Mail size={17} />
+          </a>
+
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub profile"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/30 hover:bg-violet-300/10 hover:text-violet-200"
+          >
+            <Github size={17} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/shashi-suman-6b614320a/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn profile"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-cyan-300/10 hover:text-cyan-200"
+          >
+            <Linkedin size={17} />
+          </a>
+        </div>
       </div>
-      <div className="mt-12 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-7 text-xs text-slate-600 md:flex-row"><p>© {new Date().getFullYear()} Shashi Suman. Built with Next.js, Tailwind CSS & Motion.</p><div className="flex gap-5"><a href="mailto:raj34828@gmail.com" className="hover:text-white"><Mail size={17} /></a><a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white"><Github size={17} /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white"><Linkedin size={17} /></a></div></div>
     </Section>
   </main>;
 }
