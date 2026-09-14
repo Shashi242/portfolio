@@ -110,7 +110,7 @@ export default function Page() {
       {open && <div className="glass mx-auto mt-2 max-w-7xl rounded-2xl p-3 md:hidden">{nav.map(n => <button key={n} onClick={() => go(n)} className="block w-full rounded-xl px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/5">{n}</button>)}</div>}
     </nav>
 
-    <section className="relative flex min-h-screen items-center px-5 md:pt-28 pt-8 md:px-8">
+    <section className="relative flex min-h-screen items-center px-5 md:pt-10 pt-8 md:px-8">
       <div className="absolute inset-0 -z-20 bg-[#05070d]" />
       <motion.div style={{ y }} className="absolute inset-0 -z-10 bg-cover bg-center opacity-70" style={{ backgroundImage: "url(/tech-bg.png)" }} aria-hidden="true" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_40%,rgba(5,7,13,.15),#05070d_72%)]" />
