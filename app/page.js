@@ -88,8 +88,8 @@ export default function Page() {
   return <main className="overflow-hidden">
     <motion.div className="fixed left-0 top-0 z-[100] h-1 w-full origin-left bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400" style={{ scaleX }} />
 
-    <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-8">
-      <div className="glass mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-5 py-3 shadow-2xl">
+    <nav className="fixed left-0 right-0 top-0 z-50 md:px-8">
+      <div className="glass mx-auto flex max-w-7xl items-center justify-between md:rounded-b-2xl px-5 py-3 shadow-2xl">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="group flex items-center font-mono text-lg font-extrabold tracking-tight"
@@ -107,10 +107,10 @@ export default function Page() {
         <a href="mailto:raj34828@gmail.com" className="hidden rounded-full border border-cyan-300/30 px-4 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-300/10 md:block">Let’s talk</a>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
       </div>
-      {open && <div className="glass mx-auto mt-2 max-w-7xl rounded-2xl p-3 md:hidden">{nav.map(n => <button key={n} onClick={() => go(n)} className="block w-full rounded-xl px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/5">{n}</button>)}</div>}
+      {open && <div className="glass mx-auto max-w-7xl rounded-b-2xl p-3 md:hidden">{nav.map(n => <button key={n} onClick={() => go(n)} className="block w-full rounded-xl px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/5">{n}</button>)}</div>}
     </nav>
 
-    <section className="relative flex min-h-screen items-center px-5 md:pt-10 pt-8 md:px-8">
+    <section className="relative flex min-h-screen items-center px-5 md:pt-10 pt-4 md:px-8">
       <div className="absolute inset-0 -z-20 bg-[#05070d]" />
       <motion.div style={{ y }} className="absolute inset-0 -z-10 bg-cover bg-center opacity-70" style={{ backgroundImage: "url(/tech-bg.png)" }} aria-hidden="true" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_40%,rgba(5,7,13,.15),#05070d_72%)]" />
