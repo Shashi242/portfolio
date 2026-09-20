@@ -65,7 +65,7 @@ const education = [
 ];
 
 function Section({ id, eyebrow, title, children }) {
-  return <section id={id} className="relative mx-auto max-w-7xl scroll-mt-24 px-5 md:py-24 py-16 md:px-8">
+  return <section id={id} className="relative mx-auto max-w-7xl scroll-mt-8 px-5 md:py-24 py-16 md:px-8">
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .7 }}>
       <p className="mb-3 text-xs font-semibold uppercase tracking-[.3em] text-cyan-300">{eyebrow}</p>
       <h2 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">{title}</h2>
@@ -88,29 +88,208 @@ export default function Page() {
   return <main className="overflow-hidden">
     <motion.div className="fixed left-0 top-0 z-[100] h-1 w-full origin-left bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400" style={{ scaleX }} />
 
-    <nav className="fixed left-0 right-0 top-0 z-50 md:px-8">
-      <div className="glass mx-auto flex max-w-7xl items-center justify-between md:rounded-b-2xl px-5 py-3 shadow-2xl">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="group flex items-center font-mono text-lg font-extrabold tracking-tight"
-          aria-label="Go to top"
+    <nav className="fixed left-0 right-0 top-0 z-50 px-2 pt-1.5 md:px-6">
+      <div className="mx-auto max-w-7xl">
+        {/* Navbar */}
+        <div
+          className="
+        relative flex items-center justify-between
+        md:rounded-2xl rounded-xl border border-white/10
+        bg-slate-950/70 px-4 py-3
+        shadow-[0_8px_40px_rgba(0,0,0,0.35)]
+        backdrop-blur-2xl
+        md:px-5
+      "
         >
-          <span className="text-cyan-300 transition-transform duration-300 group-hover:-translate-x-0.5">
-            S
-          </span>
-          <span className="mx-0.5 text-white">/</span>
-          <span className="text-violet-300 transition-transform duration-300 group-hover:translate-x-0.5">
-            S
-          </span>
-        </button>
-        <div className="hidden items-center gap-7 md:flex">{nav.map(n => <button key={n} onClick={() => go(n)} className="text-sm text-slate-300 cursor-pointer transition hover:text-white">{n}</button>)}</div>
-        <a href="mailto:raj34828@gmail.com" className="hidden rounded-full border border-cyan-300/30 px-4 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-300/10 md:block">Let’s talk</a>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
+          {/* Gradient border glow */}
+          <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-cyan-400/20 via-transparent to-violet-500/20 blur-xl" />
+
+          {/* Logo */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group relative flex items-center gap-1 font-mono text-xl font-black tracking-tight"
+            aria-label="Go to top"
+          >
+            <span className="text-cyan-300 transition-all duration-300 group-hover:-translate-x-1 group-hover:text-cyan-200">
+              S
+            </span>
+
+            <span className="text-slate-500 transition-colors duration-300 group-hover:text-slate-300">
+              /
+            </span>
+
+            <span className="text-violet-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-violet-200">
+              S
+            </span>
+
+            {/* Small glow */}
+            <span className="absolute -inset-2 -z-10 rounded-full bg-cyan-400/10 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-1 rounded-full border border-white/5 bg-white/[0.03] p-1 md:flex">
+            {nav.map((n) => (
+              <button
+                key={n}
+                onClick={() => go(n)}
+                className="
+                cursor-pointer
+              group relative rounded-full px-4 py-2
+              text-sm font-medium text-slate-400
+              transition-all duration-300
+              hover:bg-white/[0.06]
+              hover:text-white
+            "
+              >
+                {/* Active/hover glow */}
+                <span
+                  className="
+                absolute inset-x-3 bottom-1 h-px
+                origin-center scale-x-0
+                bg-gradient-to-r from-cyan-300 to-violet-400
+                opacity-0
+                transition-all duration-300
+                group-hover:scale-x-100
+                group-hover:opacity-100
+              "
+                />
+
+                <span className="relative">{n}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Let's Talk */}
+          <a
+            href="mailto:raj34828@gmail.com"
+            className="
+          group relative hidden overflow-hidden
+          rounded-full border border-cyan-300/20
+          bg-gradient-to-r from-cyan-400/10 to-violet-500/10
+          px-5 py-2.5
+          text-xs font-semibold text-cyan-100
+          shadow-[0_0_20px_rgba(34,211,238,0.08)]
+          transition-all duration-300
+          hover:border-cyan-300/40
+          hover:shadow-[0_0_25px_rgba(34,211,238,0.18)]
+          md:block
+        "
+          >
+            {/* Hover shine */}
+            <span
+              className="
+            absolute inset-0 -translate-x-full
+            bg-gradient-to-r from-transparent via-white/10 to-transparent
+            transition-transform duration-700
+            group-hover:translate-x-full
+          "
+            />
+
+            <span className="relative flex items-center gap-2">
+              Let’s talk
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="
+          rounded-xl border border-white/10
+          bg-white/[0.04] p-2
+          text-slate-300
+          transition-all duration-300
+          hover:border-white/20
+          hover:bg-white/[0.08]
+          hover:text-white
+          md:hidden
+        "
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div
+          className={`
+        mt-2 overflow-hidden rounded-2xl
+        border border-white/10
+        bg-slate-950/90
+        shadow-[0_15px_50px_rgba(0,0,0,0.4)]
+        backdrop-blur-2xl
+        transition-all duration-300
+        md:hidden
+        ${open
+              ? "max-h-[500px] translate-y-0 opacity-100"
+              : "pointer-events-none max-h-0 -translate-y-2 opacity-0"
+            }
+      `}
+        >
+          <div className="p-2">
+            {nav.map((n, index) => (
+              <button
+                key={n}
+                onClick={() => go(n)}
+                className="
+              group flex w-full items-center
+              justify-between rounded-xl
+              px-4 py-3.5
+              text-left text-sm font-medium
+              text-slate-300
+              transition-all duration-300
+              hover:bg-white/[0.06]
+              hover:text-white
+            "
+              >
+                <span className="flex items-center gap-3">
+                  <span className="font-mono text-xs text-slate-600 transition-colors group-hover:text-cyan-300">
+                    0{index + 1}
+                  </span>
+
+                  {n}
+                </span>
+
+                <span className="translate-x-[-4px] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                  →
+                </span>
+              </button>
+            ))}
+
+            {/* Mobile CTA */}
+            <div className="mt-2 border-t border-white/5 pt-2">
+              <a
+                href="mailto:raj34828@gmail.com"
+                className="
+              flex items-center justify-center gap-2
+              rounded-xl
+              bg-gradient-to-r
+              from-cyan-400/10
+              to-violet-500/10
+              px-4 py-3
+              text-sm font-semibold
+              text-cyan-200
+              transition-all duration-300
+              hover:from-cyan-400/20
+              hover:to-violet-500/20
+            "
+              >
+                Let’s talk
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      {open && <div className="glass mx-auto max-w-7xl rounded-b-2xl p-3 md:hidden">{nav.map(n => <button key={n} onClick={() => go(n)} className="block w-full rounded-xl px-4 py-3 text-left text-sm text-slate-200 hover:bg-white/5">{n}</button>)}</div>}
     </nav>
 
-    <section className="relative flex min-h-screen items-center px-5 md:pt-10 pt-4 md:px-8">
+    <section className="relative flex min-h-screen items-center px-5 md:pt-10 pt-6 md:px-8">
       <div className="absolute inset-0 -z-20 bg-[#05070d]" />
       <motion.div style={{ y }} className="absolute inset-0 -z-10 bg-cover bg-center opacity-70" style={{ backgroundImage: "url(/tech-bg.png)" }} aria-hidden="true" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_40%,rgba(5,7,13,.15),#05070d_72%)]" />
