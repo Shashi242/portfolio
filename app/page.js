@@ -59,6 +59,7 @@ const projects = [
 ];
 
 const education = [
+  { title: "Master of Computer Applications (MCA)", place: "Chandigarh University", date: "2024 – Present", location: "Online" },
   { title: "Bachelor of Science in Computer Application", place: "St. Xavier’s College, Ranchi", date: "June 2019 – June 2022", location: "Ranchi, Jharkhand, India" },
   { title: "Intermediate (10+2), PCM", place: "Suryanarayan Inter College", date: "Mar 2015 – Mar 2017", location: "Aurangabad, Bihar, India" },
   { title: "Secondary School (10th)", place: "Mahesh Academy", date: "Mar 2015", location: "Aurangabad, Bihar, India" }
